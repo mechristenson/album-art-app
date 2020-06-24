@@ -4,19 +4,26 @@ var appRouter = function (app) {
     res.status(200).send("Welcome to our restful API");
   });
 
-  app.get("/users", function (req, res) {
-    var data = ({
-      artists: 'Marcus Miller',
-      name: 'Reniassance',
-      genres: 'Jazz-funk',
-      href: 'https://open.spotify.com/album/219wS6ARwdrMOCFWLpo79s?si=b0Sh1Ae4T-ibhOcLZjjvOQ',
-      images: 'https://upload.wikimedia.org/wikipedia/en/1/14/Renaissance_%28Marcus_Miller_album_cover%29.jpg',
-      release_date: 'May 28, 2012'
-    });
+  app.get("/albums", function (req, res) {
+    var data = (
+      [
+        {
+          id: 1,
+          content: {
+            artists: 'Marcus Miller',
+            name: 'Reniassance',
+            genres: 'Jazz-funk',
+            href: 'https://open.spotify.com/album/219wS6ARwdrMOCFWLpo79s?si=b0Sh1Ae4T-ibhOcLZjjvOQ',
+            images: 'https://upload.wikimedia.org/wikipedia/en/1/14/Renaissance_%28Marcus_Miller_album_cover%29.jpg',
+            release_date: 'May 28, 2012'
+          }
+        }
+      ]
+    );
     res.status(200).send(data);
   });
 
-  app.get("/users/:num", function (req, res) {
+  app.get("/albums/:num", function (req, res) {
     var users = [];
     var num = req.params.num;
 
